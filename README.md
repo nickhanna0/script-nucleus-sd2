@@ -9,6 +9,7 @@ Cherry Studio skills for converting long scripts into short-form vertical drama 
   - `script-nucleus-sd2-strategy.md` — Stage 0–2 adaptation strategy (evaluation + conflict recomposition + multi-scale hook chain)
   - `script-nucleus-sd2-generator.md` — Stage 3–6 storyboard generator + redline QC loop
   - `script-nucleus-sd2-packager.md` — Seedance2 prompt packager (soft constraints S/M/H + consistency declaration)
+  - `script-nucleus-sd2-sound-packager.md` — Sound layer last-mile packager (SFX/BGM keywords, adaptive silence)
   - `script-nucleus-sd2-qc.md` — Post-gen QC + minimal-change repair plan
 
 ## Key design (learned from live tests)
@@ -22,6 +23,10 @@ Cherry Studio skills for converting long scripts into short-form vertical drama 
 - **Staged confirmations**:
   - Confirm strategy (Stage 0–2) before generating storyboard.
   - Confirm storyboard framework before composing Seedance2 prompts.
+
+- **Sound is last-mile**:
+  - Generate SFX/BGM tags after CLIP content is confirmed (reduce early token use).
+  - Prefer adaptive **silence/low-frequency** for threat/forbidden tension.
 
 ## Installation (Cherry Studio)
 
