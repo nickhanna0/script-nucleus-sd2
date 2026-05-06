@@ -17,6 +17,7 @@ description: Seedance2友好QC与返工建议。输入StoryboardDoc或PromptPack
 ---
 
 ## Layer0 v2 执行卡引用（检查依据）
+- 统一入口：`kb/layer0/index.md`
 - 运镜与镜头语言：`kb/layer0/camera-motion-rules.md`
 - 描述性优先：`kb/layer0/descriptive-vs-narrative.md`
 - 时间戳切片：`kb/layer0/timestamp-blocking.md`

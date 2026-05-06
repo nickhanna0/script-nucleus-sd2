@@ -25,6 +25,7 @@ description: Seedance2提示词组装技能（软约束）。输入StoryboardDoc
 ---
 
 ## Layer0 v2 执行卡引用（必须遵守）
+- 统一入口：`kb/layer0/index.md`
 - 运镜与镜头语言：`kb/layer0/camera-motion-rules.md`
 - 描述性优先：`kb/layer0/descriptive-vs-narrative.md`
 - 时间戳切片：`kb/layer0/timestamp-blocking.md`
