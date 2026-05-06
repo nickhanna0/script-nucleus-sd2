@@ -1,6 +1,6 @@
 ---
 name: script-nucleus-sd2-qc
-description: Seedance2友好QC与返工建议。输入StoryboardDoc或PromptPack以及用户对生成视频的反馈，输出漂移风险、可生成性问题、以及最小改动返工建议（不需要重做全套）。
+description: Seedance2友好QC与返工建议。输入StoryboardDoc或PromptPack以及用户对生成视频的反馈，输出漂移风险、可生成性问题、以及最小改动返工建议（不需要重做全套）。同时支持“逻辑框架QC”（用于两次确认点）与“可生成性QC”（用于出片）。
 ---
 
 # script-nucleus-sd2-qc
@@ -9,10 +9,26 @@ description: Seedance2友好QC与返工建议。输入StoryboardDoc或PromptPack
 - StoryboardDoc / SeedancePromptPack
 - 用户反馈（失败类型）：如“角色变脸”“镜头没快切”“动作太僵硬”“场景漂移”“出现文字水印”
 - 可选：用户提供生成视频截图/描述
+- 可选：Bible / AdaptationPlan（用于逻辑框架QC）
 
 ## 输出
 - QCReport（问题分类 + 严重级别）
 - RepairPlan（最小改动策略：改前缀/改声明/改某CLIP几句/升档位S→M等）
+
+---
+
+## QC 两种模式（新增）
+
+### A) 逻辑框架QC（用于两次确认点）
+目的：不纠结镜头细节，先保证宏观结构不冲突。
+检查：
+- 四尺度钩子链是否自洽（单集/3集/S1/全剧）
+- 推爽留分段是否与目标集数一���
+- E1/E2/E3 单元节奏规则是否与本集定位冲突
+- 已确认 premises 是否在后续输出中被改写/漂移
+
+### B) 可生成性QC（用于出片/返工）
+目的：检查 Seedance2 生成风险与最小改动返修路径。
 
 ---
 
@@ -33,7 +49,7 @@ description: Seedance2友好QC与返工建议。输入StoryboardDoc或PromptPack
 
 ---
 
-## 快速检查清单（新增 v2）
+## 快速检查清单（v2，可生成性QC）
 
 ### A. 运镜与镜头规则
 - 裸英文运镜词（Dolly/Aerial/Crane/Pan/Arc/Dutch/Steadicam）是否出现？（应改为中文或英文完整短语）

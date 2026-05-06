@@ -1,6 +1,6 @@
 ---
 name: script-nucleus-sd2-strategy
-description: 阶段0-2策略技能。输入长剧本/长大纲后，完成：输入评估、冲突密度重组、阶段判定与策略制定。输出工程化AdaptationPlan资产，用于后续生成器。内化“推爽留多尺度嵌套（钩子链）”。
+description: 阶段0-2策略技能。输入长剧本/长大纲后，完成：输入评估、冲突密度重组、阶段判定与策略制定。输出工程化AdaptationPlan资产，用于后续生产。默认在策略确认后触发一次“逻辑框架QC”，并回写Bible作为唯一锚定物。
 ---
 
 # script-nucleus-sd2-strategy（阶段0-2）
@@ -8,12 +8,14 @@ description: 阶段0-2策略技能。输入长剧本/长大纲后，完成：输
 ## 输入
 - 原剧本/大纲（可长文本）
 - 可选：平台（抖音/红果）、目标集数（默认20）、每集时长（默认60-90秒）
+- 可选：Bible（若已存在，以 Bible 为准，避免漂移）
 
 ## 输出
 - 策略摘要
 - 冲突点提取统计（默认Top 15，避免token爆炸）
 - **多尺度钩子链设计**（单集/3集/S1/全剧）
 - `ASSET:AdaptationPlan` JSON
+- （推荐）`ASSET:Bible` JSON（策略确认后回写：premises/season/locks）
 
 ---
 
@@ -28,15 +30,14 @@ description: 阶段0-2策略技能。输入长剧本/长大纲后，完成：输
 - S1分段（tui/shuang/liu ranges）
 - 每3集升级点（unit3 cadence）
 - 每4–5集大升级点（macro escalation）
+- 终局钩说明（endgame hook note）
 
 ---
 
-## 片段输入的世界观/弧光/分季规则（防脑补污染）
-若用户只给“片段”，不得凭空扩写大世界观；但必须给出“最小可用骨架”以支撑分集：
-- 现实题材默认：都市职场/家庭
-- S1集数：按用户目标（默认20）
-- 弧光：仅给主角与对手各1条（可调整）
-- 关系/秘密：以用户确认的 premises 为准
+## 策略确认点（新增：Bible 回写）
+当用户对策略确认（“通过/OK/继续生成分镜”）时：
+1) 触发一次 QC（逻辑框架检查）：检查钩子链、推爽留分段、单集/3集/S1/全剧四尺度是否冲突
+2) 通过后回写 Bible：固化 premises/season/locks/adaptationPlanId
 
 ---
 
@@ -51,10 +52,34 @@ description: 阶段0-2策略技能。输入长剧本/长大纲后，完成：输
     "shuangRange": [7,16],
     "liuRange": [17,20],
     "unit3": {"enabled": true, "rule": "E1压/E2释前奏/E3钩升级，循环"},
-    "macroEscalation": {"everyEpisodes": 4, "note": "每4-5集一个大升级钩"}
+    "macroEscalation": {"everyEpisodes": 4, "note": "每4-5集一个大升级钩"},
+    "endgameHook": {"note": "终局钩：真相/代价/救赎"}
   },
   "intake": {"wordCount":0,"sceneCount":0,"majorCharacters":[],"complexity":"linear|multi|web","genre":"","styleTendency":"","emotionalTone":"","score":0,"recommendation":"full|extract|rebuild"},
   "conflictRecomposition": {"extractedCount":0,"transformNeededCount":0,"distribution":{"qi":0,"cheng":0,"zhuan":0,"he":0},"templates":[],"newConflictsNeeded":0,"conflicts":[]},
   "strategy": {"phase":"qi|cheng|zhuan|he|mixed","psyLayer":"tui|shuang|liu|mixed","pacing":"","hookDensity":"","templateUsage":"","dialogueStyle":""}
+}
+```
+
+---
+
+## Bible 最小资产（v1，策略阶段可初始化/更新）
+```json
+{
+  "meta": {"type":"Bible","id":"bible_xxx","version":1,"status":"draft","createdAt":0,"updatedAt":0,"title":"Series Bible"},
+  "premises": [],
+  "locks": {"characters": [], "locations": [], "lookAndFeel": {"colorTemp":"","contrast":"","lighting":""}},
+  "season": {
+    "episodeCount": 20,
+    "tuiRange": [1,6],
+    "shuangRange": [7,16],
+    "liuRange": [17,20],
+    "unit3": {"enabled": true, "rule": "E1压/E2释前奏/E3钩升级，循环"},
+    "macroEscalation": {"everyEpisodes": 4, "note": "每4-5集一个大升级钩"},
+    "endgameHook": {"note": "终局钩：真相/代价/救赎"}
+  },
+  "episodeGate": {"mode": "incremental", "currentEpisode": 1, "confirmedEpisodes": []},
+  "confirmed": {"strategy": {"adaptationPlanId":"", "confirmedAt":0}, "episodes": []},
+  "changeLog": []
 }
 ```
