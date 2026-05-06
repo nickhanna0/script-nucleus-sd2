@@ -1,6 +1,6 @@
 ---
 name: script-nucleus-sd2-qc
-description: Seedance2友好QC与返工建议。输入StoryboardDoc或PromptPack以及用户对生成视频的反馈，输出漂移风险、可生成性问题、以及最小改动返工建议（不需要重做全套）。同时支持“逻辑框架QC”（用于两次确认点）与“可生成性QC”（用于出片）。
+description: Seedance2友好QC与返工建议。输入StoryboardDoc或PromptPack以及用户对生成视频的反馈，输出漂移风险、可生成性问题、以及最小改动返工建议（不需要重做全套）。同时支持“逻辑框架QC”（用于策略确认）与“漂移/冲突QC”（用于分镜确认）与“可生成性QC”（用于出片）。
 ---
 
 # script-nucleus-sd2-qc
@@ -9,7 +9,7 @@ description: Seedance2友好QC与返工建议。输入StoryboardDoc或PromptPack
 - StoryboardDoc / SeedancePromptPack
 - 用户反馈（失败类型）：如“角色变脸”“镜头没快切”“动作太僵硬”“场景漂移”“出现文字水印”
 - 可选：用户提供生成视频截图/描述
-- 可选：Bible / AdaptationPlan（用于逻辑框架QC）
+- 可选：Bible / AdaptationPlan（用于逻辑框架/漂移检查）
 
 ## 输出
 - QCReport（问题分类 + 严重级别）
@@ -17,22 +17,28 @@ description: Seedance2友好QC与返工建议。输入StoryboardDoc或PromptPack
 
 ---
 
-## QC 两种模式（新增）
+## QC 三种模式（新增）
 
-### A) 逻辑框架QC（用于两次确认点）
+### A) 逻辑框架QC（用于策略确认点，省 token）
 目的：不纠结镜头细节，先保证宏观结构不冲突。
 检查：
 - 四尺度钩子链是否自洽（单集/3集/S1/全剧）
-- 推爽留分段是否与目标集数一���
-- E1/E2/E3 单元节奏规则是否与本集定位冲突
-- 已确认 premises 是否在后续输出中被改写/漂移
+- 推爽留分段是否与目标集数一致
+- E1/E2/E3 单元节奏规则是否可循环、升级点是否明确
 
-### B) 可生成性QC（用于出片/返工）
+### B) 漂移/冲突QC（用于分镜确认点，轻量）
+目的：确认“本集分镜”没有偏离已确认 Bible。
+检查：
+- Bible premises/locks 是否被改写（角色关系、关键设定、场景锚点、影调锚点）
+- 本集定位是否与 season 规划冲突（推段/爽段/留段）
+- 本集集尾钩是否达标（默认≥LV2；3集单元的第3集需升级）
+
+### C) 可生成性QC（用于出片/返工）
 目的：检查 Seedance2 生成风险与最小改动返修路径。
 
 ---
 
-## Layer0 v2 执行卡引用（检查依据）
+## Layer0 v2 执行卡引用（可生成性QC的检查依据）
 - 统一入口：`kb/layer0/index.md`
 - 运镜与镜头语言：`kb/layer0/camera-motion-rules.md`
 - 描述性优先：`kb/layer0/descriptive-vs-narrative.md`
@@ -49,7 +55,7 @@ description: Seedance2友好QC与返工建议。输入StoryboardDoc或PromptPack
 
 ---
 
-## 快速检查清单（v2，可生成性QC）
+## 快速检查清单（可生成性QC）
 
 ### A. 运镜与镜头规则
 - 裸英文运镜词（Dolly/Aerial/Crane/Pan/Arc/Dutch/Steadicam）是否出现？（应改为中文或英文完整短语）
