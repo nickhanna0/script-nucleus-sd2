@@ -1,6 +1,6 @@
 ---
 name: script-nucleus-sd2-packager
-description: Seedance2提示词组装技能（软约束）。输入StoryboardDoc（或分镜Markdown），输出可直接投喂Seedance2的提示词包：保持自然分镜叙事，加入可调软约束前缀、一致性声明与轻量负面约束（可开关，S/M/H档）。支持“字段化组件 + 渲染成可复制PROMOTE”，并对渲染PROMOTE做长度约束以避免注意力稀释。
+description: Seedance2提示词组装技能（软约束）。输入StoryboardDoc（或分镜Markdown），输出可直接投喂Seedance2的提示词包：保持自然分镜叙事，加入可调软约束、长度控制、以及双输出（components+rendered）。
 ---
 
 # script-nucleus-sd2-packager（软约束PROMOTE）
@@ -24,6 +24,18 @@ description: Seedance2提示词组装技能（软约束）。输入StoryboardDoc
 
 ---
 
+## Layer0 v2 执行卡引用（必须遵守）
+- 运镜与镜头语言：`kb/layer0/camera-motion-rules.md`
+- 描述性优先：`kb/layer0/descriptive-vs-narrative.md`
+- 时间戳切片：`kb/layer0/timestamp-blocking.md`
+- 三层光影：`kb/layer0/light-structure.md`
+
+rendered 渲染时：
+- 情绪优先用“可见细节”表达（避免抽象心理词堆叠）
+- 遵守“一镜一动”精神，不把多个强运镜塞进同一切片句
+
+---
+
 ## 三段式软约束（不机械）
 1) Prefix（短、稳定）：平台规格+影调+人物锚点+场景锚点（按档位调强度）
 2) Body（长、自由）：直接复用分镜的镜1-4叙事（不强改写）
@@ -43,7 +55,7 @@ description: Seedance2提示词组装技能（软约束）。输入StoryboardDoc
 - **T1 叙事流（Narrative-Flow）**：适合文戏/情绪对峙/暧昧拉扯
 - **T2 动作时间轴（Action-Timeline）**：适合武戏/动作/高密度冲突
 - **T3 悬疑证据（Suspense-Evidence）**：适合线索/证据推进（强调遮挡与不展示可读文字）
-- **T4 喜剧节��（Comedy-Beat）**：适合反差梗点（setup→misdirect→punchline→aftertaste）
+- **T4 喜剧节拍（Comedy-Beat）**：适合反差梗点（setup→misdirect→punchline→aftertaste）
 
 模板选择建议（按 CLIP_TYPE，而非按风格）：
 - dialogue → T1
