@@ -14,6 +14,15 @@ import json
 from datetime import datetime
 from typing import Dict, Any
 
+# DeepSeek integration (optional)
+try:
+    from ..deepseek_client import get_client
+except Exception:
+    from deepseek_client import get_client
+
+
+_ds = get_client()
+
 
 def skill_main(skill_call: Dict[str, Any]) -> Dict[str, Any]:
     """
@@ -32,12 +41,26 @@ def skill_main(skill_call: Dict[str, Any]) -> Dict[str, Any]:
         script_text = skill_input.get("scriptText", "Sample script content")
         episode_count = skill_input.get("episodeCount", 20)
         
-        # Simulate strategy generation
-        # In real use, this would call LLM or strategy engine with the skill's detailed rules
-        # For demo, we generate synthetic but realistic outputs
-        
-        adaptation_plan = _generate_adaptation_plan(script_text, episode_count)
-        bible = _generate_bible(script_text, episode_count)
+        # Try using DeepSeek to generate a richer adaptation plan + bible
+        if _ds.available():
+            prompt = f"Extract an adaptation plan and bible from the following script text:\n{script_text}\nEpisodeCount:{episode_count}\nReturn JSON with keys adaptationPlan and bible."
+            resp = _ds.chat(prompt)
+            if resp.get("success") and resp.get("text"):
+                try:
+                    parsed = json.loads(resp["text"]) if resp["text"].strip().startswith("{") else None
+                    if parsed and isinstance(parsed, dict):
+                        adaptation_plan = parsed.get("adaptationPlan") or _generate_adaptation_plan(script_text, episode_count)
+                        bible = parsed.get("bible") or _generate_bible(script_text, episode_count)
+                    else:
+                        adaptation_plan = _generate_adaptation_plan(script_text, episode_count)
+                        bible = _generate_bible(script_text, episode_count)
+                except Exception:
+                    adaptation_plan = _generate_adaptation_plan(script_text, episode_count)
+                    bible = _generate_bible(script_text, episode_count)
+        else:
+            # Fallback to local mock
+            adaptation_plan = _generate_adaptation_plan(script_text, episode_count)
+            bible = _generate_bible(script_text, episode_count)
         
         assets = [adaptation_plan, bible]
         

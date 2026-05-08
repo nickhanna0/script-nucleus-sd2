@@ -13,6 +13,15 @@ import json
 from datetime import datetime
 from typing import Dict, Any, Optional
 
+# Try to use DeepSeek if available; otherwise fall back to local mock generator
+try:
+    from ..deepseek_client import get_client
+except Exception:
+    from deepseek_client import get_client
+
+
+_ds = get_client()
+
 
 def skill_main(skill_call: Dict[str, Any]) -> Dict[str, Any]:
     """
@@ -38,8 +47,28 @@ def skill_main(skill_call: Dict[str, Any]) -> Dict[str, Any]:
                 "errors": [{"code": "MISSING_UPSTREAM", "message": "AdaptationPlan or Bible not found"}]
             }
         
-        # Generate storyboard
-        storyboard = _generate_storyboard(adaptation_plan, bible, project_state)
+        # Attempt to generate via DeepSeek
+        if _ds.available():
+            prompt = f"Generate a condensed storyboard for a short video series based on adaptation plan:\n{json.dumps(adaptation_plan, ensure_ascii=False)}\nand bible:\n{json.dumps(bible, ensure_ascii=False)}\nProduce JSON with episodes and clips."
+            resp = _ds.chat(prompt)
+            if resp.get("success") and resp.get("text"):
+                try:
+                    # Try to parse returned JSON
+                    parsed = json.loads(resp["text"]) if resp["text"].strip().startswith("{") or resp["text"].strip().startswith("[") else None
+                    if parsed and isinstance(parsed, dict) and parsed.get("episodes"):
+                        storyboard = {
+                            "meta": {"type": "StoryboardDoc", "id": f"sb_{datetime.now().strftime('%Y%m%d%H%M%S')}", "version": 1, "status": "draft", "createdAt": datetime.now().isoformat(), "skillName": "generator-deepseek"},
+                            "data": parsed
+                        }
+                    else:
+                        storyboard = _generate_storyboard(adaptation_plan, bible, project_state)
+                except Exception:
+                    storyboard = _generate_storyboard(adaptation_plan, bible, project_state)
+            else:
+                storyboard = _generate_storyboard(adaptation_plan, bible, project_state)
+        else:
+            # Fallback to mock
+            storyboard = _generate_storyboard(adaptation_plan, bible, project_state)
         
         return {
             "status": "success",

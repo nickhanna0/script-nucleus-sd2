@@ -8,6 +8,14 @@ import json
 from datetime import datetime
 from typing import Dict, Any, Optional
 
+try:
+    from ..deepseek_client import get_client
+except Exception:
+    from deepseek_client import get_client
+
+
+_ds = get_client()
+
 
 def skill_main(skill_call: Dict[str, Any]) -> Dict[str, Any]:
     skill_name = skill_call.get("skillName", "packager")
@@ -19,8 +27,23 @@ def skill_main(skill_call: Dict[str, Any]) -> Dict[str, Any]:
         if not storyboard:
             return {"status": "error", "output": {"assets": []}, "errors": [{"code": "MISSING_STORYBOARD", "message": "StoryboardDoc not found"}]}
         
-        # Create prompt pack (mock rendered prompt)
-        prompt_pack = _generate_prompt_pack(storyboard, project_state)
+        # Prefer DeepSeek-generated prompt pack if available
+        if _ds.available():
+            prompt = f"Create a SeedancePromptPack for storyboard:\n{json.dumps(storyboard, ensure_ascii=False)}\nReturn JSON with items array."
+            resp = _ds.chat(prompt)
+            if resp.get("success") and resp.get("text"):
+                try:
+                    parsed = json.loads(resp["text"]) if resp["text"].strip().startswith("{") else None
+                    if parsed and parsed.get("items"):
+                        prompt_pack = {"meta": {"type": "SeedancePromptPack", "id": f"pp_{datetime.now().strftime('%Y%m%d%H%M%S')}", "version": 1, "status": "draft", "createdAt": datetime.now().isoformat(), "skillName": "packager-deepseek"}, "data": parsed}
+                    else:
+                        prompt_pack = _generate_prompt_pack(storyboard, project_state)
+                except Exception:
+                    prompt_pack = _generate_prompt_pack(storyboard, project_state)
+            else:
+                prompt_pack = _generate_prompt_pack(storyboard, project_state)
+        else:
+            prompt_pack = _generate_prompt_pack(storyboard, project_state)
         
         return {"status": "success", "output": {"assets": [prompt_pack]}, "errors": [], "metadata": {"skillName": skill_name, "executedAt": datetime.now().isoformat()}}
     except Exception as e:

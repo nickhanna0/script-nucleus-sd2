@@ -8,6 +8,14 @@ import json
 from datetime import datetime
 from typing import Dict, Any, Optional, List
 
+try:
+    from ..deepseek_client import get_client
+except Exception:
+    from deepseek_client import get_client
+
+
+_ds = get_client()
+
 
 def skill_main(skill_call: Dict[str, Any]) -> Dict[str, Any]:
     skill_name = skill_call.get("skillName", "qc")
@@ -19,7 +27,20 @@ def skill_main(skill_call: Dict[str, Any]) -> Dict[str, Any]:
         if not storyboard:
             return {"status": "error", "output": {"assets": []}, "errors": [{"code": "MISSING_STORYBOARD", "message": "StoryboardDoc not found"}]}
         
+        # Optionally ask DeepSeek to review and suggest repairs
         findings, repair_plan = _run_qc_checks(storyboard, prompt_pack)
+        if _ds.available():
+            prompt = f"Perform QC on the storyboard and prompt pack. Return JSON with findings (list) and repairPlan (list).\nStoryboard:{json.dumps(storyboard, ensure_ascii=False)}\nPromptPack:{json.dumps(prompt_pack, ensure_ascii=False)}"
+            resp = _ds.chat(prompt)
+            if resp.get("success") and resp.get("text"):
+                try:
+                    parsed = json.loads(resp["text"]) if resp["text"].strip().startswith("{") else None
+                    if parsed and isinstance(parsed, dict):
+                        findings = parsed.get("findings", findings)
+                        repair_plan = parsed.get("repairPlan", repair_plan)
+                except Exception:
+                    pass
+
         qc_report = _make_qc_report(findings, repair_plan)
         
         return {"status": "success", "output": {"assets": [qc_report]}, "errors": [], "metadata": {"skillName": skill_name, "executedAt": datetime.now().isoformat()}}

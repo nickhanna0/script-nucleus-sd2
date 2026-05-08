@@ -7,7 +7,13 @@ Generates sound tags (SFX/BGM) for each clip based on storyboard content.
 import json
 from datetime import datetime
 from typing import Dict, Any, Optional
+try:
+    from ..deepseek_client import get_client
+except Exception:
+    from deepseek_client import get_client
 
+
+_ds = get_client()
 
 def skill_main(skill_call: Dict[str, Any]) -> Dict[str, Any]:
     skill_name = skill_call.get("skillName", "sound-packager")
@@ -18,7 +24,24 @@ def skill_main(skill_call: Dict[str, Any]) -> Dict[str, Any]:
         if not storyboard:
             return {"status": "error", "output": {"assets": []}, "errors": [{"code": "MISSING_STORYBOARD", "message": "StoryboardDoc not found"}]}
         
-        sound_pack = _generate_sound_pack(storyboard)
+        # Try DeepSeek for richer sound tagging
+        if _ds.available():
+            prompt = f"For the following storyboard, suggest SFX and BGM tags per clip:\n{json.dumps(storyboard, ensure_ascii=False)}\nReturn JSON array items with id, SFX, BGM."
+            resp = _ds.chat(prompt)
+            if resp.get("success") and resp.get("text"):
+                try:
+                    parsed = json.loads(resp["text"]) if resp["text"].strip().startswith("[") or resp["text"].strip().startswith("{") else None
+                    if isinstance(parsed, list) or (isinstance(parsed, dict) and parsed.get("items")):
+                        items = parsed if isinstance(parsed, list) else parsed.get("items")
+                        sound_pack = {"meta": {"type": "SoundPack", "id": f"sp_{datetime.now().strftime('%Y%m%d%H%M%S')}", "version": 1, "status": "draft", "createdAt": datetime.now().isoformat(), "skillName": "sound-packager-deepseek"}, "data": {"items": items}}
+                    else:
+                        sound_pack = _generate_sound_pack(storyboard)
+                except Exception:
+                    sound_pack = _generate_sound_pack(storyboard)
+            else:
+                sound_pack = _generate_sound_pack(storyboard)
+        else:
+            sound_pack = _generate_sound_pack(storyboard)
         return {"status": "success", "output": {"assets": [sound_pack]}, "errors": [], "metadata": {"skillName": skill_name, "executedAt": datetime.now().isoformat()}}
     except Exception as e:
         return {"status": "error", "output": {"assets": []}, "errors": [{"code": "SOUNDPACK_ERROR", "message": str(e)}]}
