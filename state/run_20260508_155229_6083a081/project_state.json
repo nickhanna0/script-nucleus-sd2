@@ -1,0 +1,379 @@
+{
+  "meta": {
+    "runId": "run_20260508_155229_6083a081",
+    "projectId": "full_demo",
+    "createdAt": "2026-05-08T15:52:29.500515",
+    "currentPhase": "N4",
+    "status": "initialized",
+    "updatedAt": "2026-05-08T15:52:29.677061"
+  },
+  "project": {
+    "id": "full_demo",
+    "title": "Full Pipeline Demo",
+    "platform": "douyin",
+    "aspectRatio": "9:16"
+  },
+  "pointers": {
+    "storySeedId": "",
+    "bibleId": "bible_20260508155229",
+    "adaptationPlanId": "ap_20260508155229",
+    "storyboardId": "sb_20260508155229",
+    "promptPackId": "pp_20260508155229",
+    "soundPackId": "",
+    "lastQCId": "qc_20260508155229"
+  },
+  "settings": {
+    "constraintStrength": "S",
+    "includeConsistencyDeclaration": true,
+    "episodeCount": 20
+  },
+  "assets": [
+    {
+      "meta": {
+        "type": "AdaptationPlan",
+        "id": "ap_20260508155229",
+        "version": 1,
+        "status": "draft",
+        "createdAt": "2026-05-08T15:52:29.555301",
+        "updatedAt": "2026-05-08T15:52:29.555311",
+        "skillName": "strategy"
+      },
+      "data": {
+        "premises": [
+          "核心设定从原脚本提取",
+          "改编方向：短剧化、高密度钩子链"
+        ],
+        "season": {
+          "episodeCount": 20,
+          "tuiRange": [
+            1,
+            6
+          ],
+          "shuangRange": [
+            7,
+            13
+          ],
+          "liuRange": [
+            14,
+            20
+          ],
+          "unit3": {
+            "enabled": true,
+            "rule": "E1压/E2释前奏/E3钩升级，循环"
+          },
+          "macroEscalation": {
+            "everyEpisodes": 4,
+            "note": "每4-5集一个大升级钩"
+          },
+          "endgameHook": {
+            "note": "终局钩：真相/代价/救赎"
+          }
+        },
+        "strategy": {
+          "phase": "qi|cheng|zhuan|he|mixed",
+          "psyLayer": "tui|shuang|liu|mixed",
+          "hookDensity": "high",
+          "templateUsage": "conflict-recomposition"
+        }
+      }
+    },
+    {
+      "meta": {
+        "type": "Bible",
+        "id": "bible_20260508155229",
+        "version": 1,
+        "status": "draft",
+        "createdAt": "2026-05-08T15:52:29.555332",
+        "updatedAt": "2026-05-08T15:52:29.555335",
+        "skillName": "strategy"
+      },
+      "data": {
+        "premises": [
+          "从原脚本提取的核心设定",
+          "改编后的关键设定约束"
+        ],
+        "locks": {
+          "characters": [
+            {
+              "id": "CHAR_001",
+              "name": "主角",
+              "lockText": "主角设定锁定"
+            }
+          ],
+          "locations": [
+            {
+              "id": "LOC_001",
+              "name": "主要场景",
+              "lockText": "场景设定锁定"
+            }
+          ],
+          "lookAndFeel": {
+            "colorTemp": "warm",
+            "contrast": "high",
+            "lighting": "dramatic"
+          }
+        },
+        "season": {
+          "episodeCount": 20,
+          "tuiRange": [
+            1,
+            6
+          ],
+          "shuangRange": [
+            7,
+            13
+          ],
+          "liuRange": [
+            14,
+            20
+          ],
+          "unit3": {
+            "enabled": true,
+            "rule": "E1压/E2释前奏/E3钩升级"
+          }
+        },
+        "episodeConfirmed": []
+      }
+    },
+    {
+      "meta": {
+        "type": "StoryboardDoc",
+        "id": "sb_20260508155229",
+        "version": 1,
+        "status": "draft",
+        "createdAt": "2026-05-08T15:52:29.602455",
+        "updatedAt": "2026-05-08T15:52:29.602462",
+        "skillName": "generator"
+      },
+      "data": {
+        "format": "CLIP_STANDARD",
+        "overview": {
+          "episodeCount": 20,
+          "totalDurationSec": 6000,
+          "strategySummary": "基于 AdaptationPlan ap_20260508155229 生成"
+        },
+        "locks": {
+          "globalPrefix": "",
+          "characters": [
+            {
+              "id": "CHAR_001",
+              "name": "主角",
+              "lockText": "主角设定锁定"
+            }
+          ],
+          "locations": [
+            {
+              "id": "LOC_001",
+              "name": "主要场景",
+              "lockText": "场景设定锁定"
+            }
+          ],
+          "lookAndFeel": {
+            "colorTemp": "warm",
+            "contrast": "high",
+            "lighting": "dramatic"
+          }
+        },
+        "episodes": [
+          {
+            "episode": "E1",
+            "clips": [
+              {
+                "id": "s1e01_c01",
+                "duration": 10,
+                "type": "action",
+                "markdown": "# s1e01_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+              },
+              {
+                "id": "s1e01_c02",
+                "duration": 10,
+                "type": "dialogue",
+                "markdown": "# s1e01_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+              },
+              {
+                "id": "s1e01_c03",
+                "duration": 10,
+                "type": "action",
+                "markdown": "# s1e01_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+              }
+            ]
+          },
+          {
+            "episode": "E2",
+            "clips": [
+              {
+                "id": "s1e02_c01",
+                "duration": 10,
+                "type": "action",
+                "markdown": "# s1e02_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+              },
+              {
+                "id": "s1e02_c02",
+                "duration": 10,
+                "type": "dialogue",
+                "markdown": "# s1e02_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+              },
+              {
+                "id": "s1e02_c03",
+                "duration": 10,
+                "type": "action",
+                "markdown": "# s1e02_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+              }
+            ]
+          },
+          {
+            "episode": "E3",
+            "clips": [
+              {
+                "id": "s1e03_c01",
+                "duration": 10,
+                "type": "action",
+                "markdown": "# s1e03_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+              },
+              {
+                "id": "s1e03_c02",
+                "duration": 10,
+                "type": "dialogue",
+                "markdown": "# s1e03_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+              },
+              {
+                "id": "s1e03_c03",
+                "duration": 10,
+                "type": "action",
+                "markdown": "# s1e03_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "meta": {
+        "type": "SeedancePromptPack",
+        "id": "pp_20260508155229",
+        "version": 1,
+        "status": "draft",
+        "createdAt": "2026-05-08T15:52:29.637931",
+        "skillName": "packager"
+      },
+      "data": {
+        "items": [
+          {
+            "id": "s1e01_c01",
+            "components": {
+              "prefix": [],
+              "locks": {},
+              "beatMap": [],
+              "bodyNarrative": "# s1e01_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1",
+              "hook": {}
+            },
+            "rendered": "PROMPT for s1e01_c01: # s1e01_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+          },
+          {
+            "id": "s1e01_c02",
+            "components": {
+              "prefix": [],
+              "locks": {},
+              "beatMap": [],
+              "bodyNarrative": "# s1e01_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2",
+              "hook": {}
+            },
+            "rendered": "PROMPT for s1e01_c02: # s1e01_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+          },
+          {
+            "id": "s1e01_c03",
+            "components": {
+              "prefix": [],
+              "locks": {},
+              "beatMap": [],
+              "bodyNarrative": "# s1e01_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3",
+              "hook": {}
+            },
+            "rendered": "PROMPT for s1e01_c03: # s1e01_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+          },
+          {
+            "id": "s1e02_c01",
+            "components": {
+              "prefix": [],
+              "locks": {},
+              "beatMap": [],
+              "bodyNarrative": "# s1e02_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1",
+              "hook": {}
+            },
+            "rendered": "PROMPT for s1e02_c01: # s1e02_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+          },
+          {
+            "id": "s1e02_c02",
+            "components": {
+              "prefix": [],
+              "locks": {},
+              "beatMap": [],
+              "bodyNarrative": "# s1e02_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2",
+              "hook": {}
+            },
+            "rendered": "PROMPT for s1e02_c02: # s1e02_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+          },
+          {
+            "id": "s1e02_c03",
+            "components": {
+              "prefix": [],
+              "locks": {},
+              "beatMap": [],
+              "bodyNarrative": "# s1e02_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3",
+              "hook": {}
+            },
+            "rendered": "PROMPT for s1e02_c03: # s1e02_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+          },
+          {
+            "id": "s1e03_c01",
+            "components": {
+              "prefix": [],
+              "locks": {},
+              "beatMap": [],
+              "bodyNarrative": "# s1e03_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1",
+              "hook": {}
+            },
+            "rendered": "PROMPT for s1e03_c01: # s1e03_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+          },
+          {
+            "id": "s1e03_c02",
+            "components": {
+              "prefix": [],
+              "locks": {},
+              "beatMap": [],
+              "bodyNarrative": "# s1e03_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2",
+              "hook": {}
+            },
+            "rendered": "PROMPT for s1e03_c02: # s1e03_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+          },
+          {
+            "id": "s1e03_c03",
+            "components": {
+              "prefix": [],
+              "locks": {},
+              "beatMap": [],
+              "bodyNarrative": "# s1e03_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3",
+              "hook": {}
+            },
+            "rendered": "PROMPT for s1e03_c03: # s1e03_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+          }
+        ]
+      }
+    },
+    {
+      "meta": {
+        "type": "QCReport",
+        "id": "qc_20260508155229",
+        "version": 1,
+        "status": "draft",
+        "createdAt": "2026-05-08T15:52:29.677024",
+        "skillName": "qc"
+      },
+      "data": {
+        "findings": [],
+        "repairPlan": []
+      }
+    }
+  ],
+  "changelog": []
+}

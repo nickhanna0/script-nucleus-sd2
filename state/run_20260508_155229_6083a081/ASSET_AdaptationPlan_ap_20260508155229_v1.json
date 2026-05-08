@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "type": "AdaptationPlan",
+    "id": "ap_20260508155229",
+    "version": 1,
+    "status": "draft",
+    "createdAt": "2026-05-08T15:52:29.555301",
+    "updatedAt": "2026-05-08T15:52:29.555311",
+    "skillName": "strategy"
+  },
+  "data": {
+    "premises": [
+      "核心设定从原脚本提取",
+      "改编方向：短剧化、高密度钩子链"
+    ],
+    "season": {
+      "episodeCount": 20,
+      "tuiRange": [
+        1,
+        6
+      ],
+      "shuangRange": [
+        7,
+        13
+      ],
+      "liuRange": [
+        14,
+        20
+      ],
+      "unit3": {
+        "enabled": true,
+        "rule": "E1压/E2释前奏/E3钩升级，循环"
+      },
+      "macroEscalation": {
+        "everyEpisodes": 4,
+        "note": "每4-5集一个大升级钩"
+      },
+      "endgameHook": {
+        "note": "终局钩：真相/代价/救赎"
+      }
+    },
+    "strategy": {
+      "phase": "qi|cheng|zhuan|he|mixed",
+      "psyLayer": "tui|shuang|liu|mixed",
+      "hookDensity": "high",
+      "templateUsage": "conflict-recomposition"
+    }
+  }
+}

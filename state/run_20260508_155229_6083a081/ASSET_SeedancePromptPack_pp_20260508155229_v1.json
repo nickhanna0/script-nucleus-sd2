@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "type": "SeedancePromptPack",
+    "id": "pp_20260508155229",
+    "version": 1,
+    "status": "draft",
+    "createdAt": "2026-05-08T15:52:29.637931",
+    "skillName": "packager"
+  },
+  "data": {
+    "items": [
+      {
+        "id": "s1e01_c01",
+        "components": {
+          "prefix": [],
+          "locks": {},
+          "beatMap": [],
+          "bodyNarrative": "# s1e01_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1",
+          "hook": {}
+        },
+        "rendered": "PROMPT for s1e01_c01: # s1e01_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+      },
+      {
+        "id": "s1e01_c02",
+        "components": {
+          "prefix": [],
+          "locks": {},
+          "beatMap": [],
+          "bodyNarrative": "# s1e01_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2",
+          "hook": {}
+        },
+        "rendered": "PROMPT for s1e01_c02: # s1e01_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+      },
+      {
+        "id": "s1e01_c03",
+        "components": {
+          "prefix": [],
+          "locks": {},
+          "beatMap": [],
+          "bodyNarrative": "# s1e01_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3",
+          "hook": {}
+        },
+        "rendered": "PROMPT for s1e01_c03: # s1e01_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+      },
+      {
+        "id": "s1e02_c01",
+        "components": {
+          "prefix": [],
+          "locks": {},
+          "beatMap": [],
+          "bodyNarrative": "# s1e02_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1",
+          "hook": {}
+        },
+        "rendered": "PROMPT for s1e02_c01: # s1e02_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+      },
+      {
+        "id": "s1e02_c02",
+        "components": {
+          "prefix": [],
+          "locks": {},
+          "beatMap": [],
+          "bodyNarrative": "# s1e02_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2",
+          "hook": {}
+        },
+        "rendered": "PROMPT for s1e02_c02: # s1e02_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+      },
+      {
+        "id": "s1e02_c03",
+        "components": {
+          "prefix": [],
+          "locks": {},
+          "beatMap": [],
+          "bodyNarrative": "# s1e02_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3",
+          "hook": {}
+        },
+        "rendered": "PROMPT for s1e02_c03: # s1e02_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+      },
+      {
+        "id": "s1e03_c01",
+        "components": {
+          "prefix": [],
+          "locks": {},
+          "beatMap": [],
+          "bodyNarrative": "# s1e03_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1",
+          "hook": {}
+        },
+        "rendered": "PROMPT for s1e03_c01: # s1e03_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+      },
+      {
+        "id": "s1e03_c02",
+        "components": {
+          "prefix": [],
+          "locks": {},
+          "beatMap": [],
+          "bodyNarrative": "# s1e03_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2",
+          "hook": {}
+        },
+        "rendered": "PROMPT for s1e03_c02: # s1e03_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+      },
+      {
+        "id": "s1e03_c03",
+        "components": {
+          "prefix": [],
+          "locks": {},
+          "beatMap": [],
+          "bodyNarrative": "# s1e03_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3",
+          "hook": {}
+        },
+        "rendered": "PROMPT for s1e03_c03: # s1e03_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+      }
+    ]
+  }
+}

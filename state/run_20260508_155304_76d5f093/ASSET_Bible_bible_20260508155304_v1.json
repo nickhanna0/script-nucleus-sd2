@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "type": "Bible",
+    "id": "bible_20260508155304",
+    "version": 1,
+    "status": "draft",
+    "createdAt": "2026-05-08T15:53:04.889595",
+    "updatedAt": "2026-05-08T15:53:04.889597",
+    "skillName": "strategy"
+  },
+  "data": {
+    "premises": [
+      "从原脚本提取的核心设定",
+      "改编后的关键设定约束"
+    ],
+    "locks": {
+      "characters": [
+        {
+          "id": "CHAR_001",
+          "name": "主角",
+          "lockText": "主角设定锁定"
+        }
+      ],
+      "locations": [
+        {
+          "id": "LOC_001",
+          "name": "主要场景",
+          "lockText": "场景设定锁定"
+        }
+      ],
+      "lookAndFeel": {
+        "colorTemp": "warm",
+        "contrast": "high",
+        "lighting": "dramatic"
+      }
+    },
+    "season": {
+      "episodeCount": 20,
+      "tuiRange": [
+        1,
+        6
+      ],
+      "shuangRange": [
+        7,
+        13
+      ],
+      "liuRange": [
+        14,
+        20
+      ],
+      "unit3": {
+        "enabled": true,
+        "rule": "E1压/E2释前奏/E3钩升级"
+      }
+    },
+    "episodeConfirmed": []
+  }
+}

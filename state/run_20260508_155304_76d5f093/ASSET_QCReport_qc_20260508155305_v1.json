@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "type": "QCReport",
+    "id": "qc_20260508155305",
+    "version": 1,
+    "status": "draft",
+    "createdAt": "2026-05-08T15:53:05.034719",
+    "skillName": "qc"
+  },
+  "data": {
+    "findings": [],
+    "repairPlan": []
+  }
+}

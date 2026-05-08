@@ -148,7 +148,9 @@ class Orchestrator:
         Wrappers are Python modules in orchestrator/wrappers/ that implement
         the skill interface: skill_main(skill_call) -> skill_output
         """
-        wrapper_file = Path(__file__).parent / "wrappers" / f"{skill_name}.py"
+        # Allow skill names with '-' or '_' by normalizing to file names
+        normalized_name = skill_name.replace('-', '_')
+        wrapper_file = Path(__file__).parent / "wrappers" / f"{normalized_name}.py"
         
         if not wrapper_file.exists():
             return {
@@ -158,7 +160,8 @@ class Orchestrator:
         
         # Dynamically import and execute
         import importlib.util
-        spec = importlib.util.spec_from_file_location(skill_name, wrapper_file)
+        # Use normalized module name when importing
+        spec = importlib.util.spec_from_file_location(normalized_name, wrapper_file)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         
