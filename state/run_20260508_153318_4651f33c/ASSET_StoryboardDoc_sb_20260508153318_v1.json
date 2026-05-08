@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "type": "StoryboardDoc",
+    "id": "sb_20260508153318",
+    "version": 1,
+    "status": "draft",
+    "createdAt": "2026-05-08T15:33:18.947956",
+    "updatedAt": "2026-05-08T15:33:18.947964",
+    "skillName": "generator"
+  },
+  "data": {
+    "format": "CLIP_STANDARD",
+    "overview": {
+      "episodeCount": 20,
+      "totalDurationSec": 6000,
+      "strategySummary": "基于 AdaptationPlan ap_20260508153318 生成"
+    },
+    "locks": {
+      "globalPrefix": "",
+      "characters": [
+        {
+          "id": "CHAR_001",
+          "name": "主角",
+          "lockText": "主角设定锁定"
+        }
+      ],
+      "locations": [
+        {
+          "id": "LOC_001",
+          "name": "主要场景",
+          "lockText": "场景设定锁定"
+        }
+      ],
+      "lookAndFeel": {
+        "colorTemp": "warm",
+        "contrast": "high",
+        "lighting": "dramatic"
+      }
+    },
+    "episodes": [
+      {
+        "episode": "E1",
+        "clips": [
+          {
+            "id": "s1e01_c01",
+            "duration": 10,
+            "type": "action",
+            "markdown": "# s1e01_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+          },
+          {
+            "id": "s1e01_c02",
+            "duration": 10,
+            "type": "dialogue",
+            "markdown": "# s1e01_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+          },
+          {
+            "id": "s1e01_c03",
+            "duration": 10,
+            "type": "action",
+            "markdown": "# s1e01_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+          }
+        ]
+      },
+      {
+        "episode": "E2",
+        "clips": [
+          {
+            "id": "s1e02_c01",
+            "duration": 10,
+            "type": "action",
+            "markdown": "# s1e02_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+          },
+          {
+            "id": "s1e02_c02",
+            "duration": 10,
+            "type": "dialogue",
+            "markdown": "# s1e02_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+          },
+          {
+            "id": "s1e02_c03",
+            "duration": 10,
+            "type": "action",
+            "markdown": "# s1e02_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+          }
+        ]
+      },
+      {
+        "episode": "E3",
+        "clips": [
+          {
+            "id": "s1e03_c01",
+            "duration": 10,
+            "type": "action",
+            "markdown": "# s1e03_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+          },
+          {
+            "id": "s1e03_c02",
+            "duration": 10,
+            "type": "dialogue",
+            "markdown": "# s1e03_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+          },
+          {
+            "id": "s1e03_c03",
+            "duration": 10,
+            "type": "action",
+            "markdown": "# s1e03_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+          }
+        ]
+      }
+    ]
+  }
+}

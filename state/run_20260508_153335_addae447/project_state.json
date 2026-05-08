@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "runId": "run_20260508_153335_addae447",
+    "projectId": "demo_001",
+    "createdAt": "2026-05-08T15:33:35.591188",
+    "currentPhase": "N2",
+    "status": "initialized",
+    "updatedAt": "2026-05-08T15:33:35.640170"
+  },
+  "project": {
+    "id": "demo_001",
+    "title": "短剧改编示例：爽文反杀",
+    "platform": "douyin",
+    "aspectRatio": "9:16"
+  },
+  "pointers": {
+    "storySeedId": "",
+    "bibleId": "bible_20260508153335",
+    "adaptationPlanId": "ap_20260508153335",
+    "storyboardId": "sb_20260508153335",
+    "promptPackId": "",
+    "soundPackId": "",
+    "lastQCId": ""
+  },
+  "settings": {
+    "constraintStrength": "S",
+    "includeConsistencyDeclaration": true,
+    "episodeCount": 20
+  },
+  "assets": [
+    {
+      "meta": {
+        "type": "AdaptationPlan",
+        "id": "ap_20260508153335",
+        "version": 1,
+        "status": "draft",
+        "createdAt": "2026-05-08T15:33:35.610359",
+        "updatedAt": "2026-05-08T15:33:35.610365",
+        "skillName": "strategy"
+      },
+      "data": {
+        "premises": [
+          "核心设定从原脚本提取",
+          "改编方向：短剧化、高密度钩子链"
+        ],
+        "season": {
+          "episodeCount": 20,
+          "tuiRange": [
+            1,
+            6
+          ],
+          "shuangRange": [
+            7,
+            13
+          ],
+          "liuRange": [
+            14,
+            20
+          ],
+          "unit3": {
+            "enabled": true,
+            "rule": "E1压/E2释前奏/E3钩升级，循环"
+          },
+          "macroEscalation": {
+            "everyEpisodes": 4,
+            "note": "每4-5集一个大升级钩"
+          },
+          "endgameHook": {
+            "note": "终局钩：真相/代价/救赎"
+          }
+        },
+        "strategy": {
+          "phase": "qi|cheng|zhuan|he|mixed",
+          "psyLayer": "tui|shuang|liu|mixed",
+          "hookDensity": "high",
+          "templateUsage": "conflict-recomposition"
+        }
+      }
+    },
+    {
+      "meta": {
+        "type": "Bible",
+        "id": "bible_20260508153335",
+        "version": 1,
+        "status": "draft",
+        "createdAt": "2026-05-08T15:33:35.610376",
+        "updatedAt": "2026-05-08T15:33:35.610377",
+        "skillName": "strategy"
+      },
+      "data": {
+        "premises": [
+          "从原脚本提取的核心设定",
+          "改编后的关键设定约束"
+        ],
+        "locks": {
+          "characters": [
+            {
+              "id": "CHAR_001",
+              "name": "主角",
+              "lockText": "主角设定锁定"
+            }
+          ],
+          "locations": [
+            {
+              "id": "LOC_001",
+              "name": "主要场景",
+              "lockText": "场景设定锁定"
+            }
+          ],
+          "lookAndFeel": {
+            "colorTemp": "warm",
+            "contrast": "high",
+            "lighting": "dramatic"
+          }
+        },
+        "season": {
+          "episodeCount": 20,
+          "tuiRange": [
+            1,
+            6
+          ],
+          "shuangRange": [
+            7,
+            13
+          ],
+          "liuRange": [
+            14,
+            20
+          ],
+          "unit3": {
+            "enabled": true,
+            "rule": "E1压/E2释前奏/E3钩升级"
+          }
+        },
+        "episodeConfirmed": []
+      }
+    },
+    {
+      "meta": {
+        "type": "StoryboardDoc",
+        "id": "sb_20260508153335",
+        "version": 1,
+        "status": "draft",
+        "createdAt": "2026-05-08T15:33:35.640139",
+        "updatedAt": "2026-05-08T15:33:35.640146",
+        "skillName": "generator"
+      },
+      "data": {
+        "format": "CLIP_STANDARD",
+        "overview": {
+          "episodeCount": 20,
+          "totalDurationSec": 6000,
+          "strategySummary": "基于 AdaptationPlan ap_20260508153335 生成"
+        },
+        "locks": {
+          "globalPrefix": "",
+          "characters": [
+            {
+              "id": "CHAR_001",
+              "name": "主角",
+              "lockText": "主角设定锁定"
+            }
+          ],
+          "locations": [
+            {
+              "id": "LOC_001",
+              "name": "主要场景",
+              "lockText": "场景设定锁定"
+            }
+          ],
+          "lookAndFeel": {
+            "colorTemp": "warm",
+            "contrast": "high",
+            "lighting": "dramatic"
+          }
+        },
+        "episodes": [
+          {
+            "episode": "E1",
+            "clips": [
+              {
+                "id": "s1e01_c01",
+                "duration": 10,
+                "type": "action",
+                "markdown": "# s1e01_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+              },
+              {
+                "id": "s1e01_c02",
+                "duration": 10,
+                "type": "dialogue",
+                "markdown": "# s1e01_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+              },
+              {
+                "id": "s1e01_c03",
+                "duration": 10,
+                "type": "action",
+                "markdown": "# s1e01_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+              }
+            ]
+          },
+          {
+            "episode": "E2",
+            "clips": [
+              {
+                "id": "s1e02_c01",
+                "duration": 10,
+                "type": "action",
+                "markdown": "# s1e02_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+              },
+              {
+                "id": "s1e02_c02",
+                "duration": 10,
+                "type": "dialogue",
+                "markdown": "# s1e02_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+              },
+              {
+                "id": "s1e02_c03",
+                "duration": 10,
+                "type": "action",
+                "markdown": "# s1e02_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+              }
+            ]
+          },
+          {
+            "episode": "E3",
+            "clips": [
+              {
+                "id": "s1e03_c01",
+                "duration": 10,
+                "type": "action",
+                "markdown": "# s1e03_c01\n\n省略号表示镜头描述：\n第1镜：人物对话/动作，推动情节...\n\n钩子：LV1"
+              },
+              {
+                "id": "s1e03_c02",
+                "duration": 10,
+                "type": "dialogue",
+                "markdown": "# s1e03_c02\n\n省略号表示镜头描述：\n第2镜：人物对话/动作，推动情节...\n\n钩子：LV2"
+              },
+              {
+                "id": "s1e03_c03",
+                "duration": 10,
+                "type": "action",
+                "markdown": "# s1e03_c03\n\n省略号表示镜头描述：\n第3镜：人物对话/动作，推动情节...\n\n钩子：LV3"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "changelog": []
+}
